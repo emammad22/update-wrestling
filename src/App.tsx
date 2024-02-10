@@ -5,7 +5,7 @@ import { router } from "./routes";
 export default function App() {
 
   return (
-    <div className="App">
+    <div className="p-10">
       <RouterProvider router={router} />
     </div>
   )

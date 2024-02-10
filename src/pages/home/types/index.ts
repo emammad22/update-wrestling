@@ -57,7 +57,7 @@ interface Tournament {
 type Match = {
   wrestling_type: WrestlingType;
   fight_date: Date;
-  location: Location;
+  location: string;
   weight_category: number;
   stage: Stage;
   decision: Decision;

@@ -1,5 +1,6 @@
 import { instance } from ".";
 
+
 const getData = async (path: string) => (await instance.get(path)).data;
 const postData = async (path: string, { arg }: { arg: unknown }) =>
   (await instance.post(path, arg)).data;
