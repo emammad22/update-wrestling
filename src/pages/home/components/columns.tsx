@@ -1,5 +1,3 @@
-"use client";
-
 import { ColumnDef } from "@tanstack/react-table";
 import { Fighter, Match, Status, Tournament } from "../types";
 import { Badge } from "@/common/components/ui/badge";
@@ -82,7 +80,7 @@ export const columns: ColumnDef<Match>[] = [
     accessorKey: "created_date",
     header: "Created Date",
     cell: ({ row }) => {
-      const createdDate = row.getValue("created_value");
+      const createdDate = row.getValue("created_date");
       return `${createdDate || "---"}`;
     },
   },

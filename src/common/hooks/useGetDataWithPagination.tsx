@@ -1,7 +1,7 @@
 import { getData } from "@/services/api/requests";
 import useSWR from "swr";
 import { useState } from "react";
-import { DataWithPagination } from "../types";
+import { DataWithPagination, PaginationModel } from "../types";
 
 type UseGetDataWithPagination = string;
 
@@ -20,5 +20,5 @@ export default function useGetDataWithPagination<DataType = unknown>(path: UseGe
 
   const selectedPage = (page: number) => setPage(page);
 
-  return { data : data?.data || [], ...swrProps, nextPage, lastPage, prevPage, selectedPage, firstPage };
+  return { data: data?.data || [], ...swrProps, pagination: { nextPage, lastPage, prevPage, selectedPage, firstPage, total: data?.count, current : page || 1 } as PaginationModel };
 }

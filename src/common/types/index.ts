@@ -24,4 +24,22 @@ type Params = {
   limit: number;
 };
 
-export type { Params, DataWithPagination };
+// type PaginationType = {
+//   nextPage: () => void;
+//   prevPage: () => void;
+//   selectedPage: () => void;
+//   firstPage: () => void;
+//   lastPage: () => void;
+// }
+
+interface PaginationModel {
+  nextPage: () => void;
+  prevPage: () => void;
+  selectedPage: (page : number) => void;
+  firstPage: () => void;
+  lastPage: () => void;
+  total : number;
+  current : number;
+}
+
+export type { Params, DataWithPagination, PaginationModel };

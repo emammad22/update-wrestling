@@ -5,7 +5,7 @@ import { columns } from "./components/columns";
 import { Match } from "./types";
 
 export default function Home() {
-  const { data, isLoading, error } = useGetDataWithPagination<Match[]>(fightInfosEndpoints.base);
+  const { data, isLoading, error, isValidating, mutate, ...paginationProps } = useGetDataWithPagination<Match[]>(fightInfosEndpoints.base);
 
   return (
     <div>
@@ -14,7 +14,7 @@ export default function Home() {
       ) : error ? (
         <div>Oops, Something went wrong</div>
       ) : (
-        <DataTable data={data} columns={columns} />
+          <DataTable data={data} columns={columns}  {...paginationProps}/>
       )}
     </div>
   );
