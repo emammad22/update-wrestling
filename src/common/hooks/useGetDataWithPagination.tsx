@@ -11,6 +11,7 @@ export default function useGetDataWithPagination<DataType = unknown>(path: UseGe
   const { data, ...swrProps } = useSWR<DataWithPagination<DataType>>(
     path.includes("?") ? `${path}&page=${page}&limit=200` : `${path}?page=${page}&limit=200`,
     getData,
+    {keepPreviousData : true}
   );
 
   const nextPage = () => data?.next_page && setPage(data?.next_page);
